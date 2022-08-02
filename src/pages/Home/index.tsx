@@ -1,9 +1,18 @@
 import Logo from "../../assets/icons/logo.png";
 import FilmsList from "../../components/FilmsList";
 import Search from "../../components/Search";
+import { mockedFilms, mockedCategories } from "../../mocks";
+import { useState } from "react";
 import * as Styled from "./style";
+import { Film } from "../../types";
+
 
 const Home = () => {
+
+  // const[selectedCategory, setSelectedCategory] = useState<string>(mockedCategories[0].name)
+
+  // const[films, setFilms] = useState<Film[]>(mockedFilms[])
+
   return (
     <Styled.Home>
       <Styled.HomeHeader>
@@ -20,7 +29,7 @@ const Home = () => {
           </Styled.HomeHeaderMenu2>
         </span>
       </Styled.HomeHeader>
-      <FilmsList/>
+      <FilmsList list={mockedFilms}/>
     </Styled.Home>
   );
 };

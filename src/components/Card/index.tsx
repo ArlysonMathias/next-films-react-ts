@@ -1,18 +1,17 @@
+import { Film } from "../../types";
 import * as Styled from "./style";
 
 
 interface CardProps {
-  name: string;
-  image: string;
-  description?: string;
+  film: Film;
 }
 
-const Card = ({name, image, description, ...props}: CardProps) => {
+const Card = ({film}: CardProps) => {
   return (
     <Styled.Card>
-      <Styled.CardTitle>{name}</Styled.CardTitle>
+      <Styled.CardTitle>{film.name}</Styled.CardTitle>
       <Styled.CardContent>
-        <Styled.CardImg src={image} alt={name} />
+        <Styled.CardImg src={film.image} alt={film.name} />
       </Styled.CardContent>
       <Styled.CardButtons>
         <Styled.CardButtonView> Assistir</Styled.CardButtonView>

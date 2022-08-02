@@ -1,13 +1,16 @@
-import { data } from "../../mocks/data.json";
+import { Film } from "../../types";
 import Card from "../Card";
 import * as Styled from "./style";
 
-const FilmsList = () => {
+interface FilmsListProps {
+  list: Film[];
+}
+const FilmsList = ({list}: FilmsListProps) => {
   return (
     <Styled.Main>
-      {data.map((film) => {
-        return <Card image={film.image} name={film.name} />;
-      })}
+      {list.map((element) => (
+        <Card film={element} key={element.id} />
+      ))}
     </Styled.Main>
   );
 };
