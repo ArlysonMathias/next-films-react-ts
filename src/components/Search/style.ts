@@ -34,7 +34,7 @@ export const SearchInput = styled.input`
 
 export const SearchA = styled.a`
   color: #fcfcfc;
-  float: right;
+  float: left;
   width: 40px;
   height: 40px;
   border-radius: 50%;

@@ -58,3 +58,16 @@ export const BoxRegisterForm = styled.form`
     padding-left: 10px;
   }
 `;
+
+export const BoxRegisterFooter = styled.div`
+  button{
+    cursor: pointer;
+    background-color: transparent;
+    color: #fcfcfc;
+    font-size: 1.2rem;
+    text-decoration: none;
+    :hover{
+      color: #DF2935;
+    }
+  }
+`;
