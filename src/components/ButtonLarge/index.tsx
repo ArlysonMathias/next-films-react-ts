@@ -3,6 +3,7 @@ import * as Styled from './style';
 interface ButtonProps {
     value: string;
     type: string;
+    onClick?: ()=> void;
 }
 
 const ButtonLarge = ({value, type ,...props}: ButtonProps) => {

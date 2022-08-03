@@ -17,16 +17,7 @@ export const BoxLogin = styled.section`
     color: #fcfcfc;
     text-align: center;
     font-size: 1.2rem;
-  }
-
-  a{
-    color: #fcfcfc;
-    text-decoration: none;
-    :hover{
-      color: #DF2935;
-    }
-  }
-
+  }    
 `;
 
 export const BoxLoginLogo = styled.img`
@@ -59,4 +50,18 @@ export const BoxLoginForm = styled.form`
     color: #fcfcfc;
     padding-left: 10px;
   }
+`;
+
+export const BoxLoginFooter = styled.div`
+  button{
+    cursor: pointer;
+    background-color: transparent;
+    color: #fcfcfc;
+    font-size: 1.2rem;
+    text-decoration: none;
+    :hover{
+      color: #DF2935;
+    }
+  }
+
 `;

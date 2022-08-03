@@ -1,8 +1,10 @@
 import * as Styled from "./style";
 import Logo from "../../assets/icons/logo.png";
 import ButtonLarge from "../ButtonLarge";
+import { useNavigate } from "react-router-dom";
 
 const BoxRegister = () => {
+  const  navigate = useNavigate();
   return (
     <Styled.BoxRegister>
       <Styled.BoxRegisterLogo src={Logo} alt="Logo" />
@@ -13,7 +15,9 @@ const BoxRegister = () => {
         <input type="number" placeholder="Digite seu cpf" />
       </Styled.BoxRegisterForm>
       <ButtonLarge value="Registrar" type="button" />
-      <p> Já possui uma conta? <a href="/login">Fazer login</a></p>
+      <Styled.BoxRegisterFooter>
+        <p> Já possui uma conta? <button onClick={() => navigate("/login")}>Fazer login</button> </p>
+      </Styled.BoxRegisterFooter>
     </Styled.BoxRegister>
   );
 };
