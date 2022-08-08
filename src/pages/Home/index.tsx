@@ -1,21 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FilmsList from "../../components/FilmsList";
-import Header from "../../components/Header";
 import { mockedFilms } from "../../mocks";
+
 import * as Styled from "./style";
 
-const getFilms = () => mockedFilms;
+// const films = mockedFilms
 
 const Home = () => {
+  const [searchInputValue, setSearchInputValue] = useState("");
+  const handleSearchInputChange = (event: React.ChangeEvent<{value: string}>)=> {
+    setSearchInputValue(event.target.value);
+  };
 
-  useEffect(() => {
-    getFilms()
-  },[])
+ const getFilms = ()=>{
+    mockedFilms
+ }
+
+ useEffect(()=> {
+  getFilms
+ }, [])
 
   return (
     <Styled.Home>
-      <Header/>
-      <FilmsList list={getFilms()} />
+      <FilmsList getFilms={getFilms} searchInputValue={searchInputValue} handleSearchInputChange={handleSearchInputChange} />
     </Styled.Home>
   );
 };

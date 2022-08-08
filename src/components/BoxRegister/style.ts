@@ -18,13 +18,6 @@ export const BoxRegister = styled.section`
     font-size: 1.2rem;
   }
 
-  a {
-    color: #fcfcfc;
-    text-decoration: none;
-    :hover {
-      color: #df2935;
-    }
-  }
 `;
 
 export const BoxRegisterLogo = styled.img`

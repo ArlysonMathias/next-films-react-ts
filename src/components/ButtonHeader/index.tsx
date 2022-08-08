@@ -1,4 +1,4 @@
-import { Film } from "../../types";
+import { Film } from "../../assets/types/types";
 import * as Styled from "./style"
 
 

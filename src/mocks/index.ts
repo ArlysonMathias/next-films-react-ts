@@ -1,4 +1,4 @@
-import * as T from "../types";
+import * as T from "../assets/types/types";
 
 export const mockedFilms: T.Film[] = [
   {
