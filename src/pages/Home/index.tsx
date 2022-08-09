@@ -4,7 +4,6 @@ import { mockedFilms } from "../../mocks";
 
 import * as Styled from "./style";
 
-// const films = mockedFilms
 
 const Home = () => {
   const [searchInputValue, setSearchInputValue] = useState("");
