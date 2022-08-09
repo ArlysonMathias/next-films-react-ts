@@ -30,7 +30,7 @@ const FilmsList = ({
       {searchInputValue !== ""
         ? list
             .filter((element) => {
-              return element.name.includes(searchInputValue);
+              return element.name.toLowerCase().includes(searchInputValue.toLowerCase());
             })
             .map((element, index) => {
               return <Card film={element} key={index} />;
