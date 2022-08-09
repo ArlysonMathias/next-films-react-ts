@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Search = styled.div`
   position: absolute;
-  top: 10%;
+  float: right;
+  top: 20%;
   left: 70%;
   transform: translate(-50%, -50%);
   background: #5d737e;

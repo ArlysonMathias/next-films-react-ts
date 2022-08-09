@@ -2,7 +2,7 @@ import styled from "styled-components";
 import backgroundLogin from "../../assets/images/background-login.png";
 
 export const Home = styled.section`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)) ,
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
     url(${backgroundLogin});
   background-size: cover;
   background-attachment: fixed;
