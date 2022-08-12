@@ -1,19 +1,31 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useAuth } from "./context/auth";
+import Category from "./pages/Categories";
 import CreateFilm from "./pages/CreateFilms";
+
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
-
-const Router = () =>{
-    return (
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/register" element={<Register/>}/>
-            <Route path="/create-film" element={<CreateFilm/> }/>
-        </Routes>
-    )
-}
+const Router = () => {
+  const { logged } = useAuth();
+  return (
+    <Routes>
+      {logged ? (
+        <>
+          <Route path="/" element={<Home />} />
+          <Route path="/create-film" element={<CreateFilm />} />
+          <Route path="/category" element={<Category />} />
+        </>
+      ) : (
+        <>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </>
+      )}
+      <Route path="*" element={<Navigate to={logged ? "/" : "/login"} replace />} />
+    </Routes>
+  );
+};
 
 export default Router;
