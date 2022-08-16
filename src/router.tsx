@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./context/auth";
-import Category from "./pages/Categories";
 import CreateFilm from "./pages/CreateFilms";
 
 import Home from "./pages/Home";
@@ -15,7 +14,6 @@ const Router = () => {
         <>
           <Route path="/" element={<Home />} />
           <Route path="/create-film" element={<CreateFilm />} />
-          <Route path="/category" element={<Category />} />
         </>
       ) : (
         <>

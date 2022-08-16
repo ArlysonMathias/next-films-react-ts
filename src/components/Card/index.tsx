@@ -9,7 +9,6 @@ interface CardProps {
 const Card = ({film}: CardProps) => {
   return (
     <Styled.Card>
-      <Styled.CardTitle>{film.name}</Styled.CardTitle>
       <Styled.CardContent>
         <Styled.CardImg src={film.image} alt={film.name} />
       </Styled.CardContent>

@@ -1,30 +1,36 @@
-import { mockedFilms } from "../../mocks";
+import { useEffect, useState } from "react";
+import { Categories, Film } from "../../assets/types/types";
+import { useCategory } from "../../context/categories";
+import { useFilms } from "../../context/films";
+import { api } from "../../Services";
 import Card from "../Card";
-import Header from "../Header";
+import CategoriesComponent from "../CategoriesComponent";
 import * as Styled from "./style";
 
 type FilmListProps = {
-  searchInputValue: string; 
-  getFilms: () => void
+  searchInputValue: string;
 };
 
-const FilmsList = ({
-  searchInputValue,
-}: FilmListProps) => {
-  const list = mockedFilms;
+const FilmsList = ({ searchInputValue }: FilmListProps) => {
+  const { films } = useFilms();
+  const { category } = useCategory()
+
+  const[categories, setCategories] = useState<Categories>(category[0])
 
   return (
     <Styled.Main>
       {searchInputValue !== ""
-        ? list
+        ? films
             .filter((element) => {
-              return element.name.toLowerCase().includes(searchInputValue.toLowerCase());
+              return element.name
+                .toLowerCase()
+                .includes(searchInputValue.toLowerCase());
             })
             .map((element, index) => {
               return <Card film={element} key={index} />;
             })
-        : list.map((element, index) => {
-            return <Card film={element} key={index} />;
+        : films.map((element, index) => {
+            return <CategoriesComponent/>;
           })}
     </Styled.Main>
   );
