@@ -23,8 +23,8 @@ const Header = ({
       <Styled.HeaderLogo src={Logo} />
       <Styled.HeaderMenu>
         <button onClick={() => navigate("/")}>Início</button>
-        <button>Categorias</button>
         <button>Favoritos</button>
+        <button>Configurações</button>
         <button
           onClick={() => {
             logout();

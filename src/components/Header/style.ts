@@ -37,7 +37,7 @@ export const HeaderMenu = styled.div<ButtonProps>`
     border: none;
     color: #fcfcfc;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 30px 10px;
     transition: 0.3s ease-in-out;
     cursor: pointer;

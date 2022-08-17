@@ -3,13 +3,12 @@ import styled from "styled-components";
 export const Main = styled.main`
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+ 
   align-items: center;
   padding-top: 5rem;
   padding-bottom: 5rem;
   margin-right: 3rem;
+
 `;
 
 export const Header = styled.section`
@@ -20,31 +19,24 @@ export const Header = styled.section`
   margin-left: 5rem;
   align-items: center;
   justify-content: space-around;
-  div {
-    width: 100%;
-    margin-right: 500px;
-    height: auto;
-    display: flex;
-    justify-content: space-evenly;
 
-    button {
-      display: flex;
-      background-color: transparent;
-      text-decoration: none;
-      border: none;
-      color: #fcfcfc;
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin: 30px 10px;
-      transition: 0.3s ease-in-out;
-      cursor: pointer;
-      :hover {
-        color: #df2935;
-      }
+  button {
+    display: flex;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    color: #fcfcfc;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 30px 10px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    :hover {
+      color: #df2935;
     }
   }
 
-  input{
+  input {
     display: flex;
     align-items: center;
     height: 40px;
@@ -57,9 +49,9 @@ export const Header = styled.section`
     border-radius: 10px;
     outline: none;
 
-    ::placeholder{
-    color: #fcfcfc;
-  }
+    ::placeholder {
+      color: #fcfcfc;
+    }
   }
 `;
 export const HeaderLogo = styled.img`
@@ -70,4 +62,22 @@ export const HeaderLogo = styled.img`
   margin-left: 20px;
   display: flex;
   justify-content: start;
+`;
+export const ListFilms = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 50px;
+  h2{
+      margin-top: 25px;
+      margin-left: 50px;
+    }
+`
+
+export const ListInput = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
 `;

@@ -1,21 +1,19 @@
-import { useState } from "react"
-import { Categories } from "../../assets/types/types"
-import { useCategory } from "../../context/categories"
+import { Film } from "../../assets/types/types"
+import Card from "../Card"
 import * as Styled from "./style"
 
-const CategoriesComponent = () => {
+interface FilmsListProps {
+    filmFilters: Film[]
+}
 
-    
-  const { category } = useCategory()
+const CategoriesComponent = ({filmFilters}: FilmsListProps) => {
 
-  const[categories, setCategories] = useState<Categories>(category[0])
-
- 
+  
     return (
-        <Styled.Row>
-            <div>
-                
-            </div>
+        <Styled.Row>    
+            {filmFilters.map((element, index) => (
+                <Card film={element} key={index}/>
+            ))}
         </Styled.Row>
     )
 }
