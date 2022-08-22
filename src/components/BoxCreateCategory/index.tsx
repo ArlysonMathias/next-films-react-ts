@@ -1,6 +1,7 @@
-import ButtonLarge from "../ButtonLarge";
-import * as Styled from "./style"
 import { useNavigate } from "react-router-dom";
+import { FormButton, Input } from "../Styles/styles";
+import * as Styled from "./style";
+
 
 const BoxCreateCategory = () => {
     const navigate = useNavigate()
@@ -8,10 +9,9 @@ const BoxCreateCategory = () => {
         <Styled.BoxCreateCategory>
             <h1>Criar Categoria</h1>
             <Styled.BoxCreateCategoryForm>
-            <input type="text" placeholder="Nome da categoria" />
-                <ButtonLarge value="Registrar" type="button" />
+            <Input type="text" placeholder="Nome da categoria" />
+                <FormButton role="button" type="button">Registrar</FormButton>
             </Styled.BoxCreateCategoryForm>
-            <p onClick={() => navigate("/")}>Voltar a página inicial</p>
         </Styled.BoxCreateCategory>
     )
 }

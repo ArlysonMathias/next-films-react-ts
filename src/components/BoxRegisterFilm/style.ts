@@ -41,20 +41,16 @@ export const BoxRegisterFilmForm = styled.form`
   gap: 15px;
   padding: 14px;
   box-sizing: border-box;
-      input {
-    border: 1px solid #fcfcfc;
-    border-radius: 8px;
-    height: 36px;
-    background: #5d737e;
-    color: #fcfcfc;
-    font-size: 1.2rem;
-    padding: 5px;
-    margin-bottom: 0.7rem;
-    outline: none;
+`;
 
-  }
-  input::placeholder {
-    color: #fcfcfc;
-    padding-left: 10px;
-  }
+export const Select = styled.select`
+  all: unset;
+  border: 1px solid #fcfcfc;
+  border-radius: 8px;
+  height: 36px;
+  background: #5d737e;
+  color: #fcfcfc;
+  font-size: 1.2rem;
+  padding: 5px;
+  margin-bottom: 0.7rem;
 `;

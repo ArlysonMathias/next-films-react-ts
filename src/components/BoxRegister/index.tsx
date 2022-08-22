@@ -12,7 +12,6 @@ const BoxRegister = () => {
         <input type="text" placeholder="E-mail" />
         <input type="password" placeholder="Digite sua senha" />
         <input type="password" placeholder="Confirme sua senha" />
-        <input type="number" placeholder="Digite seu cpf" />
       </Styled.BoxRegisterForm>
       <ButtonLarge value="Registrar" type="button" />
       <Styled.BoxRegisterFooter>
