@@ -48,6 +48,7 @@ export const CardButtonView = styled.button`
   width: 90px;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   font-size: 1rem;
 

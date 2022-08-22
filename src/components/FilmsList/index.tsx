@@ -1,30 +1,50 @@
-import { mockedFilms } from "../../mocks";
+import { useEffect, useState } from "react";
+import { Categories, Film } from "../../assets/types/types";
+import { useCategory } from "../../context/categories";
+import { useFilms } from "../../context/films";
+import { api } from "../../Services";
 import Card from "../Card";
-import Header from "../Header";
+import CategoriesComponent from "../CategoriesComponent";
 import * as Styled from "./style";
 
 type FilmListProps = {
-  searchInputValue: string; 
-  getFilms: () => void
+  searchInputValue: string;
 };
 
-const FilmsList = ({
-  searchInputValue,
-}: FilmListProps) => {
-  const list = mockedFilms;
+const FilmsList = ({ searchInputValue }: FilmListProps) => {
+  const { films } = useFilms();
+  const { category } = useCategory();
+  
+  const filteredFilms = (propId: Categories) =>
+    films.filter((element) => category && element.categoryId === propId.id);
+
 
   return (
     <Styled.Main>
       {searchInputValue !== ""
-        ? list
+        ? films
             .filter((element) => {
-              return element.name.toLowerCase().includes(searchInputValue.toLowerCase());
+              return element.name
+                .toLowerCase()
+                .includes(searchInputValue.toLowerCase());
             })
             .map((element, index) => {
-              return <Card film={element} key={index} />;
+              return (
+                <Styled.ListInput>
+                  <Card film={element} key={index}  />
+                </Styled.ListInput>
+              );
             })
-        : list.map((element, index) => {
-            return <Card film={element} key={index} />;
+        : category.map((element,index) => {
+            return (
+              <Styled.ListFilms>
+                <h2>{element.name}</h2>
+                <CategoriesComponent
+                  key={index.toString()}
+                  filmFilters={filteredFilms(element)}
+                />
+              </Styled.ListFilms>
+            );
           })}
     </Styled.Main>
   );

@@ -23,8 +23,12 @@ const Header = ({
       <Styled.HeaderLogo src={Logo} />
       <Styled.HeaderMenu>
         <button onClick={() => navigate("/")}>Início</button>
-        <button>Categorias</button>
-        <button>Favoritos</button>
+        <button onClick={() => toast.error("Sessão em desenvolvimento")}>
+          Favoritos
+        </button>
+        <button onClick={() => navigate("create-film")}>
+          Criar filme/ categoria
+        </button>
         <button
           onClick={() => {
             logout();

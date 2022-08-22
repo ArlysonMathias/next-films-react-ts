@@ -8,7 +8,7 @@ import {
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { User } from "../../assets/types/types";
-import axios from "axios";
+import { api } from "../../Services/index";
 
 // interfaces
 interface AuthProviderProps {
@@ -58,14 +58,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       },
     };
 
-    axios
-      .get(
-        `https://nextfilms-api-production.up.railway.app/users/${user.id}`,
-        headers
-      )
+    api
+      .get(`users/${user.id}`, headers)
       .then(() => {
         setLogged(true);
-        navigate("/")
+        navigate("/");
       })
       .catch(() => {
         logout();
