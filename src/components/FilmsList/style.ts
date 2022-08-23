@@ -28,3 +28,10 @@ export const ListInput = styled.div`
   justify-content: space-evenly;
   flex-wrap: nowrap;
 `;
+
+// export const FilmsSwiper = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   width: 100%;
+//   height: auto;
+// `;

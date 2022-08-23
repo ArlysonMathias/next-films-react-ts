@@ -33,7 +33,7 @@ const BoxRegisterFilm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<NewFilmData>({ resolver: yupResolver(newFilmSchema)}) ;
+  } = useForm<NewFilmData>({ resolver: yupResolver(newFilmSchema)});
 
   const token = localStorage.getItem("token");
 
