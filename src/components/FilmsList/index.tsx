@@ -15,7 +15,7 @@ const FilmsList = ({ searchInputValue }: FilmListProps) => {
   const { category } = useCategory();
 
   useEffect(()=>{
-
+    
   },[films, category])
 
   const filteredFilms = (propId: Categories) =>

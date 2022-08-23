@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import * as yup from "yup";
 import { api } from "../../Services";
+import { useEffect } from "react";
+import { useCategory } from "../../context/categories";
+import { useFilms } from "../../context/films";
 
 const newCategorySchema = yup.object().shape({
   name: yup.string().required("Nome da categoria obrigatório"),
@@ -16,6 +19,7 @@ interface NewCategoryData {
 }
 
 const BoxCreateCategory = () => {
+  const { handleGetFilms } = useFilms();
   const {
     register,
     handleSubmit,
@@ -33,11 +37,12 @@ const BoxCreateCategory = () => {
   const handleNewCategory = (data: NewCategoryData) => {
     api
       .post("categories", data, headers)
-      .then(() => toast.success("Categoria criada com sucesso."))
+      .then(() => {
+        handleGetFilms();
+        toast.success("Categoria criada com sucesso.");
+      })
       .catch(() => toast.error("Erro ao criar categoria"));
   };
-
-
 
   return (
     <Styled.BoxCreateCategory>
