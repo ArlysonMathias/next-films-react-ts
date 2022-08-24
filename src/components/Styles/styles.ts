@@ -29,7 +29,7 @@ export const FormButton = styled.button`
 `;
 
 export const ErrorMessage = styled.p`
-   color: red;
+    color: red;
     align-self: center;
     font-size: small;
     height: 2rem;

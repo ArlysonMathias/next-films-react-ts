@@ -5,10 +5,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import * as yup from "yup";
-import { api } from "../../Services";
-import { useEffect } from "react";
 import { useCategory } from "../../context/categories";
 import { useFilms } from "../../context/films";
+import { api } from "../../Services";
 
 const newCategorySchema = yup.object().shape({
   name: yup.string().required("Nome da categoria obrigatório"),
