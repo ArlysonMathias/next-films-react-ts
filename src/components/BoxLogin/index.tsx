@@ -1,57 +1,67 @@
-import * as Styled from "./style";
-import Logo from "../../assets/icons/logo.png";
-import ButtonLarge from "../ButtonLarge";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import Logo from "../../assets/icons/logo.png";
 import { useAuth } from "../../context/auth";
+import { api } from "../../Services";
+import { FormButton } from "../Styles/styles";
+import * as Styled from "./style";
+import { ErrorMessage } from "../Styles/styles"
+
+//interfaces
+interface LoginData {
+  email: string;
+  password: string;
+}
+
+const loginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Formato de e-mail inválido")
+    .required("Campo e-mail, obrigatório"),
+
+  password: yup
+    .string()
+    .min(8, "Sua senha deve ter no mínimo 8 caracteres")
+    .matches(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+      "Sua senha deve ter no mímino 1 caracter especial, um número e uma letra maiúscula"
+    )
+    .required("Campo obrigatório"),
+});
 
 const BoxLogin = () => {
-  const { login} = useAuth()
+  
+  const { login } = useAuth();
   const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleLogin = () => {
-    if (email !== "" && password !== "") {
-      const data = {
-        email,
-        password,
-      };
+  const handleLogin = (data: LoginData) => {
+    api
+      .post("auth/login", data)
+      .then((res) => {
+        login({ token: res.data.token, user: res.data.user });
+      })
+      .catch(() => {
+        toast.error("Usuário ou senha inválidos");
+      });
+  };
 
-      return axios
-        .post(
-          "https://nextfilms-api-production.up.railway.app/auth/login",
-          data
-        )
-        .then((res) => {
-         login({ token: res.data.token, user: res.data.user})
-        }).catch((err) => {
-         return toast.error("Usuário ou senha inválidos")
-        });
-      }
-
-      toast.error("Preencha todos os campos!");
-    };
   return (
     <Styled.BoxLogin>
       <Styled.BoxLoginLogo src={Logo} alt="Logo" />
-      <Styled.BoxLoginForm>
-        <input
-          value={email}
-          type="text"
-          placeholder="E-mail"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          value={password}
-          type="password"
-          placeholder="Senha"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <Styled.BoxLoginForm onSubmit={handleSubmit(handleLogin)}>
+        <input placeholder="E-mail" {...register("email")} />
+        <input type="password" placeholder="Senha" {...register("password")}/>
+        <ErrorMessage>{errors.email?.message || errors.password?.message}</ErrorMessage>
+      <FormButton role="button" type="submit" >Entrar</FormButton>
       </Styled.BoxLoginForm>
-      <ButtonLarge value="Entrar" type="button" onClick={handleLogin} />
       <Styled.BoxLoginFooter>
         <p>
           {" "}
