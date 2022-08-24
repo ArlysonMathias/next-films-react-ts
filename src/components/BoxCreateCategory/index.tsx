@@ -20,6 +20,7 @@ interface NewCategoryData {
 
 const BoxCreateCategory = () => {
   const { handleGetFilms } = useFilms();
+  const { handleGetCategory } = useCategory();
   const {
     register,
     handleSubmit,
@@ -39,6 +40,7 @@ const BoxCreateCategory = () => {
       .post("categories", data, headers)
       .then(() => {
         handleGetFilms();
+        handleGetCategory();
         toast.success("Categoria criada com sucesso.");
       })
       .catch(() => toast.error("Erro ao criar categoria"));
