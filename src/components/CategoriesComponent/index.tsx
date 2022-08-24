@@ -1,21 +1,19 @@
-import { Film } from "../../assets/types/types"
-import Card from "../Card"
-import * as Styled from "./style"
+import { Film } from "../../assets/types/types";
+import Card from "../Card";
+import * as S from "./style";
 
 interface FilmsListProps {
-    filmFilters: Film[]
+  filmFilters: Film[];
 }
 
-const CategoriesComponent = ({filmFilters}: FilmsListProps) => {
-
-  
-    return (
-        <Styled.Row>    
-            {filmFilters.map((element, index) => (
-                <Card film={element} key={index}/>
-            ))}
-        </Styled.Row>
-    )
-}
+const CategoriesComponent = ({ filmFilters }: FilmsListProps) => {
+  return (
+    <S.Row>    
+    {filmFilters.map((element, index) => (
+        <Card film={element} key={index}/>
+    ))}
+</S.Row>
+  );
+};
 
 export default CategoriesComponent;

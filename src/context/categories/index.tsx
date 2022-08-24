@@ -41,6 +41,7 @@ export const CategoryProvider = ({children}: CategoryProviderProps) => {
 
     useEffect(() => {
        if (logged) handleGetCategory()
+
     }, [logged])
 
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Film } from "../../assets/types/types";
-import ModalEditFilm from "../ModalEditFilm";
 import * as Styled from "./style";
 
 
@@ -18,10 +17,6 @@ const Card = ({film}: CardProps) => {
     setOpenModal(!openModal);
   };
 
-  const handleOpenDeleteModal = () => {
-    setOpenDeleteModal(!openDeleteModal);
-  };
-
 
   return (
     <Styled.Card>
@@ -35,7 +30,6 @@ const Card = ({film}: CardProps) => {
         </div>
         <div>
           <Styled.CardButtonView onClick={() => setOpenModal(true)}>Editar</Styled.CardButtonView>
-          {openModal ? <ModalEditFilm/> : null }
           <Styled.CardButtonView>Excluir</Styled.CardButtonView>
         </div>
       </Styled.CardButtons>
