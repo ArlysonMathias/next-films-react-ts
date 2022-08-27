@@ -1,22 +1,22 @@
-import { useState } from "react";
 import toast from "react-hot-toast";
 import { Film } from "../../assets/types/types";
+import { useModal } from "../../context/modal";
+import ModalDeleteFilm from "../ModalDeleteFilm";
 import * as Styled from "./style";
-
 
 interface CardProps {
   film: Film;
 }
 
-const Card = ({film}: CardProps) => {
-
-  const [openModal, setOpenModal] = useState<boolean>(false);
-  const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
-  };
-
+const Card = ({ film }: CardProps) => {
+  const {
+    stateModalDelete,
+    stateModalEdit,
+    stateModalInfo,
+    handleModalInfo,
+    handleModalEdit,
+    handleModalDelete,
+  } = useModal();
 
   return (
     <Styled.Card>
@@ -25,13 +25,33 @@ const Card = ({film}: CardProps) => {
       </Styled.CardContent>
       <Styled.CardButtons>
         <div>
-          <Styled.CardButtonView onClick={()=> toast.error("Sessão em desenvolvimento.")}> Assistir</Styled.CardButtonView>
-          <Styled.CardButtonView onClick={handleOpenModal}> Mais...</Styled.CardButtonView>
+          <Styled.CardButtonView
+            onClick={() => toast.error("Sessão em desenvolvimento.")}
+          >
+            {" "}
+            Assistir
+          </Styled.CardButtonView>
+          <Styled.CardButtonView>Editar </Styled.CardButtonView>
         </div>
         <div>
-          <Styled.CardButtonView onClick={() => setOpenModal(true)}>Editar</Styled.CardButtonView>
-          <Styled.CardButtonView>Excluir</Styled.CardButtonView>
+          <Styled.CardButtonView
+            onClick={() => toast.error("Sessão em desenvolvimento.")}
+          >
+            Mais...
+          </Styled.CardButtonView>
+          <Styled.CardButtonView
+            onClick={() => {
+              handleModalDelete();
+              // console.log(film.id);
+              // console.log(film.name);
+            }}
+          >
+            Excluir
+          </Styled.CardButtonView>
         </div>
+        {stateModalDelete ? (
+          <ModalDeleteFilm film={film} />
+        ) : null}
       </Styled.CardButtons>
     </Styled.Card>
   );

@@ -15,6 +15,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
     box-shadow: 0px 8px 24px rgba(105, 234, 118, 0.2);
     cursor: pointer;
     font-weight: 500;
+    font-size: 1rem;
+    margin-right: 10px;
 
     ${variant === "disabled" &&
     css`

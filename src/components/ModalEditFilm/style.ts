@@ -1,29 +1,18 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import theme from "../../styles/theme";
 
-export const ModalOverlay = styled.div`
-  background-color: 00000004;
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const ModalOverlayContent = styled.div`
-  ${({ theme }) => css`
-    width: 345px;
-    height: 600px;
-    padding: 20px 20px 35px 20px;
-    margin: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: ${theme.colors.opacityColor};
-  `};
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 30vh;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 2rem;
+  text-align: center;
+  gap: 3rem;
+  color: #000;
+
   p {
     color: ${theme.colors.textColor};
     text-align: center;
