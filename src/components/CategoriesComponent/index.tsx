@@ -7,10 +7,11 @@ interface FilmsListProps {
 }
 
 const CategoriesComponent = ({ filmFilters }: FilmsListProps) => {
+
   return (
     <S.Row>    
-    {filmFilters.map((element, index) => (
-        <Card film={element} key={index}/>
+    {filmFilters.map((element) => (
+      <Card film={element} key={element.id}/>
     ))}
 </S.Row>
   );

@@ -29,10 +29,23 @@ export const FormButton = styled.button`
 `;
 
 export const ErrorMessage = styled.p`
-    color: red;
-    align-self: center;
-    font-size: small;
-    height: 2rem;
-    padding: 0 2rem;
-    text-align: center;
+  color: red;
+  align-self: center;
+  font-size: small;
+  height: 2rem;
+  padding: 0 2rem;
+  text-align: center;
+`;
+
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

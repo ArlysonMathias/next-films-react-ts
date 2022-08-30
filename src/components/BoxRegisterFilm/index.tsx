@@ -28,7 +28,7 @@ interface NewFilmData {
 }
 
 const BoxRegisterFilm = () => {
-  const { category, handleGetCategory } = useCategory();
+  const { category } = useCategory();
   const { handleGetFilms } = useFilms();
   const [categoryId, setCategoryId] = useState<string>("");
   const {
@@ -47,15 +47,16 @@ const BoxRegisterFilm = () => {
 
   const handleNewFilm = (data: NewFilmData) => {
     data.categoryId = categoryId;
+    console.log(data);
 
     api
       .post("films", data, headers)
       .then(() => {
-        handleGetCategory();
         handleGetFilms();
         toast.success("Filme Registrado com sucesso.");
+        setCategoryId("");
       })
-      .catch(() => toast.error("Selecione uma categoria"));
+      .catch((error) => console.log(error));
   };
 
   return (

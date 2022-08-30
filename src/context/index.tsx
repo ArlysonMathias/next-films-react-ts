@@ -5,6 +5,7 @@ import theme from "../styles/theme";
 import { AuthProvider } from "./auth";
 import { CategoryProvider } from "./categories";
 import { FilmsProvider } from "./films";
+import { ModalProvider } from "./modal";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -15,9 +16,11 @@ const Providers = ({ children }: ProvidersProps) => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <AuthProvider>
-          <CategoryProvider>    
-            <FilmsProvider>{children}</FilmsProvider>
-          </CategoryProvider>
+          <ModalProvider>
+            <CategoryProvider>    
+              <FilmsProvider>{children}</FilmsProvider>
+            </CategoryProvider>
+          </ModalProvider>
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>

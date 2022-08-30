@@ -6,7 +6,7 @@ export const BoxRegisterFilm = styled.section`
     position: relative;
     width: 345px;
     height: 600px;
-    padding: 20px 20px 35px 20px;
+    padding: 20px 20px 20px 20px;
     margin: 20px;
     border-radius: 8px;
     display: flex;
@@ -34,7 +34,7 @@ export const BoxRegisterFilm = styled.section`
 `;
 
 export const BoxRegisterFilmForm = styled.form`
-  margin-top: 100px;
+  margin-top: 50px;
   position: relative;
   display: flex;
   flex-direction: column;
