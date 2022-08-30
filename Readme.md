@@ -14,7 +14,7 @@
 Clone esse projeto em seu computador com o comando :
 ```bash
 #!/bin/bash
-$ git clone https://github.com/ArlysonMathias/nextFilms-API.git
+$ git clone https://github.com/ArlysonMathias/next-films-react-ts.git
 ```
 
 Acesse a pasta do projeto:
@@ -54,7 +54,7 @@ Você também pode analisar nossa api que está locilizada no <a href="https://g
 
 ## Contribuição
 
-Sinta-se a vontade para entrar em contato comigo caso tenha qualquer sugestão de melhoria no projeto
+Sinta-se a vontade para entrar em contato comigo caso tenha qualquer sugestão de melhoria no projeto.
 
 <div>
 <a href="https://www.linkedin.com/in/arlyson-teixeira/" target="blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
