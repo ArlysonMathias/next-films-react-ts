@@ -1,32 +1,27 @@
-import { Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
-import { Film } from "../../assets/types/types";
 import { useFilms } from "../../context/films";
-import { useModal } from "../../context/modal";
 import { api } from "../../Services";
 import Button from "../Button";
 import { ModalOverlay } from "../Styles/styles";
 import * as Styled from "./style";
 
 interface DeleteFilmModalProps {
-  film: Film;
-  setFilm?: Dispatch<SetStateAction<Film | undefined>>;
+  filmId: string | undefined;
+  filmName: string;
+  handleModalDelete: () => void;
 }
 
-const ModalDeleteFilm = ({ film }: DeleteFilmModalProps) => {
-  
-  console.log(film)
+const ModalDeleteFilm = ({
+  filmId,
+  filmName,
+  handleModalDelete,
+}: DeleteFilmModalProps) => {
+  console.log(filmName);
 
   const { handleGetFilms } = useFilms();
-  const { handleModalDelete } = useModal();
-
-
-  
 
   const handleDeleteFilm = () => {
     const token = localStorage.getItem("token");
-
-  
 
     const headers = {
       headers: {
@@ -34,11 +29,8 @@ const ModalDeleteFilm = ({ film }: DeleteFilmModalProps) => {
       },
     };
 
-    const verifyFilm = film.id
-    
-
     api
-      .delete(`films/${film.id}`, headers)
+      .delete(`films/${filmId}`, headers)
       .then(() => {
         toast.success("Filme excluído com sucesso");
         handleGetFilms();
@@ -49,7 +41,7 @@ const ModalDeleteFilm = ({ film }: DeleteFilmModalProps) => {
   return (
     <ModalOverlay>
       <Styled.DeleteModalContainer>
-        <h2>Excluir o filme {film.name}?</h2>
+        <h2>Excluir o filme {filmName}?</h2>
         <div>
           <Button text="Cancelar" onClick={handleModalDelete} />
           <Button text="Excluir" onClick={handleDeleteFilm} />
