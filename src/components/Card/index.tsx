@@ -4,6 +4,7 @@ import { Film } from "../../assets/types/types";
 import { useModal } from "../../context/modal";
 import ModalDeleteFilm from "../ModalDeleteFilm";
 import ModalEditFilm from "../ModalEditFilm";
+import ModalInfo from "../ModalInfo";
 import * as Styled from "./style";
 
 interface CardProps {
@@ -13,12 +14,21 @@ interface CardProps {
 const Card = ({ film }: CardProps) => {
   const [openModalDelete, setOpenModalDelete] = useState<boolean>(false);
   const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
+  const [openModalInfo, setOpenModalInfo] = useState<boolean>(false);
 
+  //abrir e fechar modal delete
   const handleModalDelete = () => {
     setOpenModalDelete(!openModalDelete);
   };
+
+  //abrir e fechar modal de edição
   const handleModalEdit = () => {
     setOpenModalEdit(!openModalEdit);
+  };
+
+  //abrir e fechar modal de informação
+  const handleModalInfo = () => {
+    setOpenModalInfo(!openModalInfo);
   };
 
   return (
@@ -37,12 +47,15 @@ const Card = ({ film }: CardProps) => {
           <Styled.CardButtonView onClick={handleModalEdit}>
             Editar{" "}
           </Styled.CardButtonView>
-        </div>
-        <div>
-          <Styled.CardButtonView>Mais...</Styled.CardButtonView>
           {openModalEdit ? (
             <ModalEditFilm film={film} handleModalEdit={handleModalEdit} />
           ) : null}
+        </div>
+        <div>
+          <Styled.CardButtonView onClick={handleModalInfo}>Mais...</Styled.CardButtonView>
+          {
+            openModalInfo ? ( <ModalInfo film={film} handleModalInfo={handleModalInfo}/>) : null
+          }
           <Styled.CardButtonView
             onClick={() => {
               handleModalDelete();

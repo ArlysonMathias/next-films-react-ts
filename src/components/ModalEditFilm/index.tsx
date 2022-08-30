@@ -59,7 +59,7 @@ const ModalEditFilm = ({ film, handleModalEdit }: EditFilmModalProps) => {
     api
       .patch(`/films/${film.id}`, data, headers)
       .then(() => {
-        toast.success("Produto atualizado com sucesso");
+        toast.success("Filme atualizado com sucesso");
         handleGetFilms();
         handleModalEdit();
       })
